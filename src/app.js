@@ -18,7 +18,7 @@ app.use(helmet())
 app.use(cors())
 
 app.use('/api/admins', adminsRouter)
-//app.use('/api/submissions', submissionsRouter)
+app.use('/api/submissions', submissionsRouter)
 
 app.get('/', (req, res) =>{
     res.send('Hello, wworld!')
