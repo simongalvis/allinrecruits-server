@@ -12,6 +12,7 @@ const serializeSubmission = submission => ({
     fullname: xss(submission.fullname),
     phonenumber: xss(submission.phonenumber),
     email: xss(submission.email),
+    interestedposition: submission.interestedposition,
     resumelink: xss(submission.resumelink),
     date_created: submission.date_created
 })
@@ -29,8 +30,8 @@ submissionsRouter
     })
     .post(jsonParser, (req, res, next) =>{
         const knexInstance = req.app.get('db')
-        const { fullname, phonenumber, email, resumelink } = req.body;
-        const newSubmission = { fullname, phonenumber, email, resumelink }
+        const { fullname, phonenumber, email, interestedposition, resumelink } = req.body;
+        const newSubmission = { fullname, phonenumber, email, interestedposition, resumelink }
 
         for(const [key, value] of Object.entries(newSubmission)){
             if(value == null){
@@ -43,6 +44,7 @@ submissionsRouter
         newSubmission.fullname = fullname;
         newSubmission.phonenumber = phonenumber;
         newSubmission.email = email;
+        newSubmission.interestedposition = interestedposition;
         newSubmission.resumelink = resumelink;
 
         SubmissionsService.insertSubmission(knexInstance, newSubmission)
@@ -85,8 +87,8 @@ submissionsRouter
           .catch(next)
       })
       .patch(jsonParser, (req, res, next) => {
-        const { fullname, phonenumber, email, resumelink } = req.body
-        const submissionToUpdate = { fullname, phonenumber, email, resumelink }
+        const { fullname, phonenumber, email, interestedposition, resumelink } = req.body
+        const submissionToUpdate = { fullname, phonenumber, email, interestedposition, resumelink }
     
         const numberOfValues = Object.values(submissionToUpdate).filter(Boolean).length
         if (numberOfValues === 0)

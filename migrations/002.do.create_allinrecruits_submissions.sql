@@ -4,5 +4,6 @@ CREATE TABLE submissions (
     phonenumber TEXT,
     email TEXT,
     resumelink TEXT NOT NULL,
+    interestedposition TEXT NOT NULL,
     date_published TIMESTAMPTZ DEFAULT now() NOT NULL
 );
