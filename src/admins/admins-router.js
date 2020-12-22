@@ -2,7 +2,7 @@ const express = require('express')
 const xss = require('xss')
 const path = require('path')
 const AdminsService = require('./admins-service')
-
+const bcrypt = require('bcrypt')
 
 const adminsRouter = express.Router()
 const jsonParser = express.json()
@@ -26,9 +26,16 @@ adminsRouter
             .catch(next)
            
     })
-    .post(jsonParser, (req, res, next) =>{
+    .post(jsonParser, async (req, res, next) =>{
+
+        try{
+
+      const salt = await bcrypt.genSalt()
+      const hashedPassword = await bcrypt.hash(req.body.password, salt)
+        
         const knexInstance = req.app.get('db')
-        const { fullname, username, password } = req.body;
+        const { fullname, username } = req.body;
+        const password = hashedPassword;
         const newAdmin = { fullname, username, password }
 
         for(const [key, value] of Object.entries(newAdmin)){
@@ -50,8 +57,42 @@ adminsRouter
                     .location(path.posix.join(req.originalUrl, `/${admin.id}`))
                     .json(serializeAdmin(admin))
             })
-            .catch(next)
+
+        }
+        catch(error){
+  
+            res.status(400).send(error.message) 
+         
+       }
     })
+    
+    
+    
+
+    adminsRouter
+    .route(`/login`)
+    .post(jsonParser, async (req, res, next) => {
+
+      const knexInstance = req.app.get('db')
+      AdminsService.getAllAdmins(knexInstance)
+      .then(admins => admins.find(admin => admin.username == req.body.username))
+      .then(async admin => {if(admin == null) {
+         res.status(400).send(`Cannot find user`)
+      }
+      try{
+       if( await bcrypt.compare(req.body.password, admin.password)){
+         res.send('Success')
+       }
+       else{
+         res.status(400).send('Not Allowed')
+       }
+      }
+      catch{
+        res.status(500).send()
+      }})
+
+  })
+    
 
     adminsRouter
     .route('/:admin_id')
