@@ -21,7 +21,7 @@ app.use('/api/admins', adminsRouter)
 app.use('/api/submissions', submissionsRouter)
 
 app.get('/', (req, res) =>{
-    res.send('Hello, wworld!')
+    res.send('Hello, world!')
 })
 
 
