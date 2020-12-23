@@ -10,14 +10,22 @@
 
 ## Screenshots
 
-- Application Page<br/>
-![Application Page]()
+- <b>Landing Page</b><br/>
+![Application Page](/images/landing-page-screenshot.png)
 
-- Admin Dashboard
-![Admin Dashboard]()
+- <b>Submissions Page</b><br/>
+![Submissions Page](/images/applicant-list-screenshot.png)
 
-- Submissions Page
-![Submissions Page]()
+- <b>Admin Dashboard</b><br/>
+![Admin Dashboard](/images/admin-dashboard-screenshot.png)
+
+- <b>Application Page</b><br/>
+![Application Page](/images/application-page-screenshot.png)
+
+- <b>Admin Login Page</b><br/>
+![Application Page](/images/admin-login-screenshot.png)
+
+
 
 
 
@@ -37,3 +45,18 @@
 
 ## Author
 - Simon Galvis
+
+## Setup 
+- Download this code and run ``` npm install ``` to install dependencies needed to run the server
+
+- Run the server locally in developer mode using ``` npm run dev```
+
+- Run the server regularly locally using ``` npm run```
+
+- Get a list of submissions: ``` GET /api/submissions```
+
+- Get a specific submission: ``` GET /api/submissions/submission_id```
+
+- Post an admin: ``` POST /api/admins```
+
+- Post a submission: ``` POST /api/submissions```
