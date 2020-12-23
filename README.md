@@ -1,26 +1,39 @@
-# Express Boilerplate!
+# All-In Recruits
+- All-In Recruits is a recruiting tool made for a client that enables them to receive running applications from candidates interested in their job positions.
 
-This is a boilerplate project used for starting new projects!
+## Link to live app
+- https://allinrecruits.vercel.app/
 
-## Set up
+## Summary
+- Job seekers can use All-In Recruits to quickly and simply upload their information including their name, number, email, interested position, and resume. 
+- Administrators can see all of the submissions filtered by job position and conveniently browse through candidates that may be suited for job openings. Administrators can also delete submissions they are not interested in.
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+## Screenshots
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+- Application Page<br/>
+![Application Page]()
 
-## Scripts
+- Admin Dashboard
+![Admin Dashboard]()
 
-Start the application `npm start`
+- Submissions Page
+![Submissions Page]()
 
-Start nodemon for the application `npm run dev`
 
-Run the tests `npm test`
 
-## Deploying
+## Built With
+- React
+- Nodejs
+- Express
+- SQL
+- PostgreSQL
+- CSS
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+
+## Features
+- Upload information in exchange for potential job opportunities
+- View submissions filtered by job position
+- Log in to account and find previously posted submissions
+
+## Author
+- Simon Galvis
