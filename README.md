@@ -5,8 +5,7 @@
 - https://allinrecruits.vercel.app/
 
 ## Summary
-- Job seekers can use All-In Recruits to quickly and simply upload their information including their name, number, email, interested position, and resume. 
-- Administrators can see all of the submissions filtered by job position and conveniently browse through candidates that may be suited for job openings. Administrators can also delete submissions they are not interested in.
+- The All-In Recruits API allows applicant users to make POST requests to upload application submissions. Admin users can retieve and delete applicant submissions with GET and DELETE requests.
 
 ## Screenshots
 
@@ -46,6 +45,7 @@
 ## Author
 - Simon Galvis
 
+
 ## Setup 
 - Download this code and run ``` npm install ``` to install dependencies needed to run the server
 
@@ -53,10 +53,51 @@
 
 - Run the server regularly locally using ``` npm run```
 
-- Get a list of submissions: ``` GET /api/submissions```
+## Endpoint documentation
+- ``` POST /api/submissions ```: Uploads a user submission given a json request body including ```"fullname", "phonenumber", "email", "interestedposition", "resumelink"``
 
-- Get a specific submission: ``` GET /api/submissions/submission_id```
+-  ``` GET /api/submissions ```: Retrieves a list of submissions made by users via the ``` POST /api/submissions``` endpoint
 
-- Post an admin: ``` POST /api/admins```
+- ``` GET /api/submissions/submission_id ```: Retrieves a specific user submission given the id of the submission as a parameter, which is represented by the ````submission_id``` parameter
 
-- Post a submission: ``` POST /api/submissions```
+- ```DELETE /api/submissions/submission_id ```: Deletes a specific user submission given the id of the submission as a parameter, which is represented by the ````submission_id``` parameter
+
+- ``` POST /api/admins ```: Creates a new admin user who is able to login and access applicant submissions
+
+- ``` POST /api/admins/login ```: Verifies login information entered by a user making an attempt to login as an administrator
+
+### Endpoint inputs
+- ``` POST /api/submissions```: Uploads a user submission given a json request body. Example request body: <br/>
+```yaml
+   { 
+        "fullname": "Wendell Yates",
+        "phonenumber": "1234567890",
+        "email": "sample@email.com",
+        "interestedposition": "Art instructor",
+        "resumelink": "http://sampleresume.com"
+    }
+```
+- ``` POST /api/admins```: Creates a new admin user with a JSON request body. Example request body:<br/>
+```yaml
+    {
+        "fullname": "Ellie Admin",
+        "username": "ellieadmin",
+        "password": "ellieAdminPassword27"
+    }
+```
+
+- ``` POST /api/admins/login ```: Verifies admin credentials with a JSON request body. Example request body:<br/>
+```yaml
+    {
+        "username": "ellieadmin",
+        "password": "ellieAdminPassword27"
+    }
+```
+
+- ``` submission_id ```: parameter used to make GET and DELETE requests based on a submission id present in the database. Example uses:<br/>
+``` GET /api/submissions/1 ```
+``` DELETE /api/submissions/2 ```
+
+
+
+
