@@ -54,19 +54,19 @@
 - Run the server regularly locally using ``` npm run```
 
 ## Endpoint documentation
-- ``` POST /api/submissions ```: Uploads a user submission given a json request body including ```"fullname", "phonenumber", "email", "interestedposition", "resumelink"``
+- ``` POST /api/submissions ```: Uploads a user submission given a JSON request body including, fullname, phonenumber, email, interestedposition, resumelink. See endpoint input documentation below for example
 
 -  ``` GET /api/submissions ```: Retrieves a list of submissions made by users via the ``` POST /api/submissions``` endpoint
 
-- ``` GET /api/submissions/submission_id ```: Retrieves a specific user submission given the id of the submission as a parameter, which is represented by the ````submission_id``` parameter
+- ``` GET /api/submissions/submission_id ```: Retrieves a specific user submission given the id of the submission as a parameter, which is represented by the ```submission_id``` parameter
 
-- ```DELETE /api/submissions/submission_id ```: Deletes a specific user submission given the id of the submission as a parameter, which is represented by the ````submission_id``` parameter
+- ```DELETE /api/submissions/submission_id ```: Deletes a specific user submission given the id of the submission as a parameter, which is represented by the ```submission_id``` parameter
 
 - ``` POST /api/admins ```: Creates a new admin user who is able to login and access applicant submissions
 
 - ``` POST /api/admins/login ```: Verifies login information entered by a user making an attempt to login as an administrator
 
-### Endpoint inputs
+### Endpoint input documentation
 - ``` POST /api/submissions```: Uploads a user submission given a json request body. Example request body: <br/>
 ```yaml
    { 
@@ -77,7 +77,7 @@
         "resumelink": "http://sampleresume.com"
     }
 ```
-- ``` POST /api/admins```: Creates a new admin user with a JSON request body. Example request body:<br/>
+- ``` POST /api/admins```: Creates a new admin user with a JSON request body. <br/> Example request body:<br/>
 ```yaml
     {
         "fullname": "Ellie Admin",
@@ -86,7 +86,7 @@
     }
 ```
 
-- ``` POST /api/admins/login ```: Verifies admin credentials with a JSON request body. Example request body:<br/>
+- ``` POST /api/admins/login ```: Verifies admin credentials with a JSON request body. <br/> Example request body:<br/>
 ```yaml
     {
         "username": "ellieadmin",
@@ -94,8 +94,8 @@
     }
 ```
 
-- ``` submission_id ```: parameter used to make GET and DELETE requests based on a submission id present in the database. Example uses:<br/>
-``` GET /api/submissions/1 ```
+- ``` submission_id ```: parameter used to make GET and DELETE requests based on a submission id present in the database. <br/>Example uses:<br/>
+``` GET /api/submissions/1 ``` <br/>
 ``` DELETE /api/submissions/2 ```
 
 
