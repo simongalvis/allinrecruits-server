@@ -94,7 +94,7 @@
     }
 ```
 
-- ``` submission_id ```: parameter used to make GET and DELETE requests based on a submission id present in the database. <br/>Example uses:<br/>
+- ``` submission_id ```: parameter used to make GET and DELETE requests based on a submission id present in the database. Example uses:<br/>
 ``` GET /api/submissions/1 ``` <br/>
 ``` DELETE /api/submissions/2 ```
 
