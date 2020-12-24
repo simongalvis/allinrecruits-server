@@ -5,7 +5,7 @@
 - https://allinrecruits.vercel.app/
 
 ## Summary
-- The All-In Recruits API allows applicant users to make POST requests to upload application submissions. Admin users can retieve and delete applicant submissions with GET and DELETE requests.
+- The All-In Recruits API allows applicant users to make POST requests to upload application submissions. Admin users can retrieve and delete applicant submissions with GET and DELETE requests.
 
 ## Screenshots
 
@@ -101,3 +101,4 @@
 
 
 
+  
